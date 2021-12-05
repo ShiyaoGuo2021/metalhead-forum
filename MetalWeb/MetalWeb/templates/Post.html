@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang='en'>
+<html>
+	<head>
+
+	</head>
+
+		<body>
+
+		<h1> {{title}}  </h1>
+		<p> {{content}}  </p>
+
+		<div>
+			{% for comment in comments %}
+
+				<h3> {{dicti[comment.commented_by]}}</h3>
+				<p> {{comment.content}} </p>
+				<p> {{comment.date}} </p>
+
+			{% endfor %}
+		</div>
+
+		<form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.comment.label }}<br>
+            {{ form.comment(size=32) }}<br>
+            {% for error in form.comment.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+            
+
+        </p>
+       
+        
+        <p>{{ form.submit() }}</p>
+    	</form>
+
+		</body>
+
+
+
+</html>

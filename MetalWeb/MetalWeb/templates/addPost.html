@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang='en'>
+<html>
+	<head>
+
+
+	</head>
+
+		<body>
+			<h1> {{ topicname }}</h1>
+			<form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.title.label }}<br>
+            {{ form.title(size=32) }}<br>
+            {% for error in form.title.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+            {{ form.content.label}}<br>
+            {{ form.content(size=1000)}}<br>
+            {% for error in form.content.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+
+        </p>
+       
+        
+        <p>{{ form.submit() }}</p>
+    	</form>
+
+
+		</body>
+
+
+
+
+</html>
+

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang='en'>
+<html>
+    <head>
+
+    </head>
+    <body>
+    	<h1> {{username}} Welcome to Metal Web</h1>
+    	<h2> <a href="{{url_for('home')}}"> home</a></h2>
+    	<form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.topicname.label }}<br>
+            {{ form.topicname(size=32) }}<br>
+            {% for error in form.topicname.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+       
+        
+        <p>{{ form.submit() }}</p>
+    	</form>
+    	<ul>
+    	{% for topic in topics %}
+    		<li> <a href="{{url_for('subforum',topicname = topic.topic_name)}}">{{topic.topic_name}} </a> </li>
+    	{% endfor %}
+    	</ul>
+
+    </body>
+
+</html>

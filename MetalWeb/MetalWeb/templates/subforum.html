@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang='en'>
+<html>
+    <head>
+
+    </head>
+    <body>
+    	<h1> {{topicname}} </h1>
+        <button name="redirect" onClick="redirect()"> Add A new Post</button>
+
+        <script type="text/javascript">
+        function redirect()
+        {
+        var url = "{{url_for('addPost',topicname = topicname)}}";
+        window.location.href=url;
+        }
+        </script>
+    	<ul>
+    	{% for post in posts %}
+    		<li> <a href="{{url_for('showPost', topicname=topicname, title=post.title, post_id=post.id)}}">{{ post.title}}</a>  {{dicti[post.posted_by]}}  {{post.date }}</li>
+
+    	{% endfor %}
+    	</ul>
+
+
+
+
+    </body>
+
+
+
+
+
+
+
+</html>
