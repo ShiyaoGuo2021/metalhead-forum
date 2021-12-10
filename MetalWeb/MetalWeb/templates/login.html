@@ -1,22 +1,28 @@
-{% block content %}
+<!DOCTYPE html>
+<html lang='en'>
+<html>
+    <head>
+        <link/ rel='stylesheet' href="{{ url_for('static', filename='login.css') }}">
+    </head>
+    <body>
     <h1>Login</h1>
     <form action="" method="post">
         {{ form.hidden_tag() }}
-        <p>
+        <p class='form'>
             {{ form.username.label }}<br>
             {{ form.username(size=32) }}<br>
             {% for error in form.username.errors %}
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
         </p>
-        <p>
+        <p class='form'>
             {{ form.email.label }}<br>
             {{ form.email(size=64) }}<br>
             {% for error in form.email.errors %}
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
         </p>
-        <p>
+        <p class='form'>
             {{ form.password.label }}<br>
             {{ form.password(size=32) }}<br>
             {% for error in form.password.errors %}
@@ -24,6 +30,12 @@
             {% endfor %}
         </p>
         
-        <p>{{ form.submit() }}</p>
+        <p class='submit'>{{ form.submit() }}</p>
     </form>
-{% endblock %}
+
+    <p id = 'forget'>
+        Forgot  Password???
+        <a href="{{ url_for('reset_password_request') }}">Click to Reset It</a>
+    </p>
+    </body>
+</html>

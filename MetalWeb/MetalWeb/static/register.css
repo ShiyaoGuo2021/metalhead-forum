@@ -1,0 +1,24 @@
+h1{
+	text-align: center;
+	color: beige;
+	font-family:'Copperplate', Fantasy;
+	font-size: 100px;
+}
+
+.form{
+	text-align: center;
+	color : crimson;
+	font-family: 'Courier New', monospace;
+	font-size:20px;
+
+}
+
+.submit{
+	
+	text-align: center;
+	color : orangered;
+}
+
+body{
+	background-color: black;
+}

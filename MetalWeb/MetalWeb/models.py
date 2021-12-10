@@ -1,6 +1,10 @@
 from MetalWeb import db, login
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
+from time import time
+import jwt
+from MetalWeb import MetalWeb
+
 
 class User(UserMixin,db.Model):
 	id = db.Column(db.Integer, primary_key = True)
@@ -10,14 +14,33 @@ class User(UserMixin,db.Model):
 	posts = db.relationship('Post', backref = 'user')
 	comments = db.relationship('Comment' , backref = 'user')
 
+	
+
+
+
 	def __repr__(self):
 		return '<User {} id {} >'.format(self.username,self.id)
 
+
+	
 	def set_password(self,password):
 		self.password_hash = generate_password_hash(password)
 
 	def check_password(self,password):
 		return check_password_hash(self.password_hash,password)
+
+
+	def get_reset_password_token(self, expires_in=600):
+        	return jwt.encode(
+            {'reset_password': self.id, 'exp': time() + expires_in},
+            MetalWeb.config['SECRET_KEY'], algorithm='HS256')
+	
+	def verify_reset_password_token(self,token):
+		try:
+			id = jwt.decode(token, MetalWeb.config['SECRET_KEY'],algorithms=['HS256'])['reset_password']
+		except:
+			return
+		return User.query.get(id)
 
 
 

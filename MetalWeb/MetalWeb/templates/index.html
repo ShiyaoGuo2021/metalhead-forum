@@ -2,14 +2,16 @@
 <html lang='en'>
 <html>
     <head>
+        <link/ rel='stylesheet' href="{{ url_for('static', filename='index.css') }}">
 
+        
     </head>
     <body>
-    	<h1> {{username}} Welcome to Metal Web</h1>
+    	<h1> <span id='user'>{{username}}</span> Welcome to Metal Web</h1>
     	<h2> <a href="{{url_for('home')}}"> home</a></h2>
     	<form action="" method="post">
         {{ form.hidden_tag() }}
-        <p>
+        <p id='form'>
             {{ form.topicname.label }}<br>
             {{ form.topicname(size=32) }}<br>
             {% for error in form.topicname.errors %}
@@ -20,12 +22,31 @@
         
         <p>{{ form.submit() }}</p>
     	</form>
+
+
+        <div>
+            <h2 id='want'> Want a random metal song? Click it!</h2>
+            <h2 id="song">            </h2>
+            <h2 id="artist">            </h2>
+            <button type="button" onclick='generate()'> JA</button>
+        </div>
     	<ul>
     	{% for topic in topics %}
-    		<li> <a href="{{url_for('subforum',topicname = topic.topic_name)}}">{{topic.topic_name}} </a> </li>
+    		<li> <a href="{{url_for('subforum',topicname = topic.topic_name)}}"><span id='topic'>{{topic.topic_name}}</span> </a> </li>
     	{% endfor %}
     	</ul>
 
+
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type='text/javascript'>
+        function generate(){
+        $.get('/random').done(function(response){
+            $('#song').text(response['metallizer'])
+            $('#artist').text(response['artist'])
+        });
+    }
+    </script>
     </body>
 
 </html>
