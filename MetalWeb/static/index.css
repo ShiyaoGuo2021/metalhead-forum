@@ -1,0 +1,58 @@
+h1{
+	text-align: center;
+	color: beige;
+	font-family:'Copperplate', Fantasy;
+	font-size: 80px;
+}
+
+#user{
+ color:crimson;
+ font-family:Impact, fantasy
+ font-size: 80px;
+
+}
+a:link {
+	padding: 14px 25px;
+  text-align: left;
+  text-decoration: none;
+  display: inline-block;
+  
+}
+#form{
+	color: royalblue;
+	font-size: 20px;
+	font-family: 'Courier New', monospace;
+
+}
+
+#topic{
+	
+	/**
+    border-bottom: .2em solid hsla(0,0%,70%,.5);
+**/
+  text-align: center;
+  
+  
+ 
+  background:#ccc;  
+  
+}
+ul li{
+	background-color: lightblue;
+	text-align: center;
+	border: 1px solid black;
+	border-radius: 5px;
+	display:block;
+	margin-top: 10px;
+	width: 80%;
+
+
+}
+
+ul{
+	width: 100%;
+
+
+	
+	
+}

@@ -1,0 +1,19 @@
+
+h3 {
+	font-family: Verdana;
+	font-size: 16px;
+}
+
+.commentWrapper {
+	width: 80%;
+	height: auto;
+	border: 1px solid black;
+	border-radius: 5px;
+	margin-bottom: 10px;
+	padding-left: 5px;
+}
+
+.commentWrapper:hover{
+	background-color: black;
+	color: green;
+}

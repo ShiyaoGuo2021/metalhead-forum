@@ -1,0 +1,15 @@
+input {
+	height: 50px;
+	border: 1px solid black;
+	border-radius: 5px;
+	width: 80%;
+}
+
+label {
+	font-family:Verdana;
+}
+
+.submit_btn {
+	cursor: pointer;
+	background-color: lightblue;
+}

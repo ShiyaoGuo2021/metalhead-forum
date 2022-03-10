@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang='en'>
+<html>
+    <head>
+        <link/ rel='stylesheet' href="{{ url_for('static', filename='subforum.css') }}">
+    </head>
+    <body>
+    	<h1> {{topicname}} </h1>
+        <button class="addPostBtn" name="redirect" onClick="redirect()"> Add A new Post</button>
+
+        <script type="text/javascript">
+        function redirect()
+        {
+        var url = "{{url_for('addPost',topicname = topicname)}}";
+        window.location.href=url;
+        }
+        </script>
+    	<ul>
+    	{% for post in posts %}
+    		<li> <a href="{{url_for('showPost', topicname=topicname, title=post.title, post_id=post.id)}}"><div class="postTitle">{{ post.title}}</div></a>  <div class="postedBy"><span>By </span>{{dicti[post.posted_by]}}</div> <div class="date">{{post.date }}</div>  </li>
+
+    	{% endfor %}
+    	</ul>
+
+
+
+
+    </body>
+
+
+
+
+
+
+
+</html>

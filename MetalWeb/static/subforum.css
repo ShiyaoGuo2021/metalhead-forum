@@ -1,0 +1,40 @@
+.addPostBtn {
+	height: 25px;
+	background-color: lightblue;
+	border: 1px solid black;
+	border-radius: 5px;
+}
+
+.postTitle {
+	font-size: 20px;
+}
+
+a:visited {
+	color: black;
+}
+
+a {
+	color: black;
+	cursor: pointer;
+}
+
+li {
+	border: 2px solid black;
+	margin-bottom: 10px;
+	border-radius: 5px;
+	padding: 5px;
+	background-color: lightblue;
+	width: 80%;
+}
+
+.postedBy {
+	width: 100%;
+	font-size: 16px;
+	font-family: Apple Chancery;
+}
+
+.date {
+	width: 100%;
+	font-family: verdana;
+	font-size: 11px;
+}
